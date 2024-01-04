@@ -7,6 +7,7 @@ function App() {
   return (
     <>
      <h1> WaterBoy ChatBot</h1>
+     <p> Meet WaterBoy your personal Babylon AI</p>
     </>
   )
 }
