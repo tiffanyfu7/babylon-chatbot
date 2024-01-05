@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 
-import { createThread, retrieveAssistant } from "./assistant.js";
+import { createThread, retrieveThread, deleteThread, createMessage, retrieveAssistant } from "./assistant.js";
 import { InputBar } from "./components/InputBar.jsx";
 import { Links } from "./components/Links.jsx";
 import BabylonLogo from "./images/BabylonLogo.png";
