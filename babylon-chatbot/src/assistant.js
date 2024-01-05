@@ -1,8 +1,6 @@
 import OpenAI from "openai";
-const openai = new OpenAI({
-  apiKey: import.meta.env.VITE_OPENAI_API_KEY,
-  dangerouslyAllowBrowser: true,
-});
+
+const openai = new OpenAI({ apiKey: import.meta.env.VITE_OPENAI_API_KEY, dangerouslyAllowBrowser: true });
 
 /*Retrieve Assistant*/
 async function retrieveAssistant() {
@@ -35,20 +33,37 @@ async function retrieveAssistant() {
 export { retrieveAssistant };
 
 /*Create a Thread*/
-// returns
+
+async function createThread() {
+  const newThread = await openai.beta.threads.create();
+
+  return newThread;
+}
+// returns 
 // {
 //   "id": "thread_abc123",
 //   "object": "thread",
 //   "created_at": 1699012949,
 //   "metadata": {}
 // }
+export { createThread };
 
 /*Retrieve a Thread*/
 
+  
 /*Delete a Thread*/
-
+  
 /*Create a Message*/
+async function createMessage({ thread, message }) {
+  const threadMessages = await openai.beta.threads.messages.create(
+    { thread },
+    { role: "user", content: { message } }
+  );
+
+  console.log(threadMessages);
+}
+
 
 /*List Messages*/
-
+  
 /*Delete Assistant */
