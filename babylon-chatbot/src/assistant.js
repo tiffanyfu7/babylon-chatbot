@@ -50,6 +50,17 @@ export { createThread };
 
 /*Retrieve a Thread*/
 
+async function retrieveThread(myThread){
+  const continueThread = await openai.beta.threads.retrieve(
+    {myThread}
+  );
+
+  return continueThread;
+
+}
+
+export { retrieveThread };
+
   
 /*Delete a Thread*/
   

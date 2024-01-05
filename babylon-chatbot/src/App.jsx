@@ -1,12 +1,40 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
-import { createThread, retrieveAssistant } from "./assistant.js";
+import {
+  createThread,
+  retrieveThread,
+  retrieveAssistant,
+} from "./assistant.js";
 import { InputBar } from "./components/InputBar.jsx";
 import { Links } from "./components/Links.jsx";
 import BabylonLogo from "./images/BabylonLogo.png";
 
 function App() {
-  console.log(createThread().then(obj => console.log(obj)));
+  const [threadID, setThreadID] = useState("");
+
+  useEffect(() => {
+
+      createThread()
+        .then((obj) => {
+          console.log(obj), setThreadID(obj.id);
+        })
+        .catch((error) => console.log(error));
+
+
+  }, []);
+
+  console.log(threadID)
+
+  useEffect(() => {
+    
+      retrieveThread(threadID)
+        .then((obj) => console.log(obj))
+        .catch((error) => console.log(error))
+      
+    
+  }, [])
+
+  
 
   return (
     <>
