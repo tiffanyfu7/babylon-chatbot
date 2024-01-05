@@ -13,26 +13,30 @@ import BabylonLogo from "./images/BabylonLogo.png";
 
 function App() {
   const [threadID, setThreadID] = useState("");
-  const [message, setMessage] = useState("");
+  //const [message, setMessage] = useState("");
+
+  const message = "createMessage() work";
 
   useEffect(() => {
     createThread()
       .then((obj) => {
-        console.log(obj), setThreadID(JSON.stringify(obj.id));
+        console.log(obj), setThreadID(String(obj.id));
       })
       .catch((error) => console.log(error));
+
   }, []);
 
-  console.log(threadID);
+  console.log(threadID); 
 
-  // work on this next
-  // useEffect(() => {
-  //   createMessage()
-  //     .then((obj) => {
-  //       console.log(obj), setThreadID(JSON.stringify(obj.id));
-  //     })
-  //     .catch((error) => console.log(error));
-  // }, []);
+  useEffect(() => {
+    if (threadID) { // thing to remember is that when we have a dependency array, it pushes default and then the updated value as well
+      createMessage(threadID, message)
+        .then((obj) => {
+          console.log(obj);
+        })
+        .catch((error) => console.log(error));
+    }
+  }, [threadID]);
 
   return (
     <>
