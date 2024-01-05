@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { AssistantProcessing } from "react";
 
 export const InputBar = () => {
   const [submittedPrompt, setSubmittedPrompt] = useState("");
