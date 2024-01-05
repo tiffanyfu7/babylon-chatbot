@@ -7,7 +7,31 @@ import { Links } from "./components/Links.jsx";
 import BabylonLogo from "./images/BabylonLogo.png";
 
 function App() {
-  console.log(createThread().then(obj => console.log(obj)));
+  const [threadID, setThreadID] = useState("");
+  //const [message, setMessage] = useState("");
+
+  const message = "createMessage() work";
+
+  useEffect(() => {
+    createThread()
+      .then((obj) => {
+        console.log(obj), setThreadID(String(obj.id));
+      })
+      .catch((error) => console.log(error));
+
+  }, []);
+
+  console.log(threadID); 
+
+  useEffect(() => {
+    if (threadID) { // thing to remember is that when we have a dependency array, it pushes default and then the updated value as well
+      createMessage(threadID, message)
+        .then((obj) => {
+          console.log(obj);
+        })
+        .catch((error) => console.log(error));
+    }
+  }, [threadID]);
 
   return (
     <>

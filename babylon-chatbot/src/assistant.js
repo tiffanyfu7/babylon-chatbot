@@ -39,6 +39,7 @@ async function createThread() {
 
   return newThread;
 }
+
 // returns 
 // {
 //   "id": "thread_abc123",
@@ -52,7 +53,7 @@ export { createThread };
 
  async function retrieveThread(myThread){
   const continueThread = await openai.beta.threads.retrieve(
-    {myThread}
+    myThread
   );
 
   return continueThread;
@@ -65,7 +66,7 @@ export { createThread };
 /*Delete a Thread*/
 
  async function deleteThread(myThread){
-  const threadToBeRemoved = await openai.beta.threads.del({myThread});
+  const threadToBeRemoved = await openai.beta.threads.del(myThread);
 
   console.log(threadToBeRemoved);
 }
@@ -73,10 +74,10 @@ export { createThread };
 export { deleteThread }
   
 /*Create a Message*/
-async function createMessage({ myThread, message }) {
+async function createMessage(myThread, message) {
   const threadMessages = await openai.beta.threads.messages.create(
-    { myThread },
-    { role: "user", content: { message } }
+    myThread,
+    { role: "user", content:  message }
   );
 
   return threadMessages;
