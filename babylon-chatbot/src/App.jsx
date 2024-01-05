@@ -1,12 +1,12 @@
 import { useState } from "react";
 import "./App.css";
-import { retrieveAssistant } from "./assistant.js";
+import { createThread, retrieveAssistant } from "./assistant.js";
 import { InputBar } from "./components/InputBar.jsx";
 import { Links } from "./components/Links.jsx";
 import BabylonLogo from "./images/BabylonLogo.png";
 
 function App() {
-  retrieveAssistant();
+  console.log(createThread().then(obj => console.log(obj)));
 
   return (
     <>

@@ -32,6 +32,11 @@ async function retrieveAssistant() {
 export { retrieveAssistant };
 
 /*Create a Thread*/
+async function createThread() {
+  const newThread = await openai.beta.threads.create();
+
+  return newThread;
+}
 // returns 
 // {
 //   "id": "thread_abc123",
@@ -39,15 +44,24 @@ export { retrieveAssistant };
 //   "created_at": 1699012949,
 //   "metadata": {}
 // }
+export { createThread };
 
 /*Retrieve a Thread*/
+
   
 /*Delete a Thread*/
   
 /*Create a Message*/
-  
+async function createMessage({ thread, message }) {
+  const threadMessages = await openai.beta.threads.messages.create(
+    { thread },
+    { role: "user", content: { message } }
+  );
+
+  console.log(threadMessages);
+}
+
+
 /*List Messages*/
-
-
   
 /*Delete Assistant */
