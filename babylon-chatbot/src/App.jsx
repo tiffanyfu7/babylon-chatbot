@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "./App.css";
 import { createAssistant } from "./assistant.js";
 import { InputBar } from "./components/InputBar.jsx";
