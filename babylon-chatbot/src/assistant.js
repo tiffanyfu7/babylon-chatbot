@@ -1,6 +1,5 @@
+const createAssistant = async () => {
+  console.log("Creating Assistant");
+};
 
-const createAssistant = async() => {
-    console.log("Creating Assistant")
-}
-
-export{createAssistant}
+export { createAssistant };

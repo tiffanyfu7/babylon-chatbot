@@ -1,29 +1,37 @@
-import {useState} from 'react'
-import {AssistantProcessing} from 'react'
+import { useState } from "react";
+import { AssistantProcessing } from "react";
 
-export const InputBar = ({message}) => {
-  const [submit, setSubmit] = useState(true);
-  const [prompt, setPrompt] = useState("");
+export const InputBar = () => {
+  const [submittedPrompt, setSubmittedPrompt] = useState("");
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    return(
-    <AssistantProcessing message={event}/>
-    )
-  }
+  const handleSubmit = (prompt) => {
+    prompt.preventDefault(); // prevents the form from autosubmitting, if you see a question mark at the https part then it is not processing the code
+    console.log(prompt.target.userInput.value);
+    setSubmittedPrompt(prompt.target.userInput.value);
+    prompt.target.userInput.value = "";
+  };
 
   return (
-
-    <form onSubmit={handleSubmit}>
-      <label>Enter prompt:
-        <input 
-          type="text" 
-          value={prompt}
-          onChange={(e) => setPrompt(e.target.value)}
-        />
-      </label>
-      <input type="submit" />
-    </form>
-  
+    <>
+      <form
+        className="box"
+        method="post"
+        onSubmit={(prompt) => handleSubmit(prompt)}
+      >
+        <label>
+          <input
+            className="inputbox"
+            type="text"
+            name="userInput"
+            placeholder="Enter prompt here"
+          />
+          <button className="submitButton">Submit</button>
+        </label>
+      </form>
+      <h3>{submittedPrompt}</h3>{" "}
+      {/* Returns the saved prompt onto the screen, now taking this we should input it into a different component for analysis */}
+      {/* <AssistantProcessing message={submittedPrompt} /> */}{" "}
+      {/* Potential next steps */}
+    </>
   );
 };
