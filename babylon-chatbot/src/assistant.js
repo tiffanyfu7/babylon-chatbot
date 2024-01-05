@@ -50,7 +50,7 @@ export { createThread };
 
 /*Retrieve a Thread*/
 
-async function retrieveThread(myThread){
+ async function retrieveThread(myThread){
   const continueThread = await openai.beta.threads.retrieve(
     {myThread}
   );
@@ -59,20 +59,30 @@ async function retrieveThread(myThread){
 
 }
 
-export { retrieveThread };
+ export { retrieveThread };
 
   
 /*Delete a Thread*/
+
+ async function deleteThread(myThread){
+  const threadToBeRemoved = await openai.beta.threads.del({myThread});
+
+  console.log(threadToBeRemoved);
+}
+
+export { deleteThread }
   
 /*Create a Message*/
-async function createMessage({ thread, message }) {
+async function createMessage({ myThread, message }) {
   const threadMessages = await openai.beta.threads.messages.create(
-    { thread },
+    { myThread },
     { role: "user", content: { message } }
   );
 
-  console.log(threadMessages);
+  return threadMessages;
 }
+
+export { createMessage };
 
 
 /*List Messages*/
