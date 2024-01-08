@@ -2,14 +2,10 @@ import OpenAI from "openai";
 
 const assistant_id = import.meta.env.VITE_OPENAI_ASSISTANT_ID;
 
-
 const openai = new OpenAI({
   apiKey: import.meta.env.VITE_OPENAI_API_KEY,
-  dangerouslyAllowBrowser: true,
+  dangerouslyAllowBrowser: true
 });
-
-
-
 
 /*Retrieve Assistant*/
 async function retrieveAssistant() {
@@ -18,8 +14,7 @@ async function retrieveAssistant() {
   );
 
   console.log(myAssistant.name);
-}
-
+};
 // {
 //   "id": "asst_abc123",
 //   "object": "assistant",
@@ -38,17 +33,14 @@ async function retrieveAssistant() {
 //   ],
 //   "metadata": {}
 // }
-
 export { retrieveAssistant };
 
 /*Create a Thread*/
-
 async function createThread() {
   const newThread = await openai.beta.threads.create();
 
   return newThread;
 }
-
 // returns
 // {
 //   "id": "thread_abc123",
@@ -59,23 +51,19 @@ async function createThread() {
 export { createThread };
 
 /*Retrieve a Thread*/
-
 async function retrieveThread(myThread) {
   const continueThread = await openai.beta.threads.retrieve(myThread);
 
   return continueThread;
 }
-
 export { retrieveThread };
 
 /*Delete a Thread*/
-
 async function deleteThread(myThread) {
-  const threadToBeRemoved = await openai.beta.threads.del(myThread);
+  const deletedThread = await openai.beta.threads.del(myThread);
 
-  console.log(threadToBeRemoved);
+  return deletedThread;
 }
-
 export { deleteThread };
 
 /*Create a Message*/
@@ -87,7 +75,6 @@ async function createMessage(myThread, message) {
 
   return threadMessages;
 }
-
 export { createMessage };
 
 /*List Messages*/
@@ -97,11 +84,9 @@ async function listMessages(myThread) {
 
   return threadMessages;
 }
-
 export { listMessages };
 
 /* Retrieve a Message */
-
 async function retrieveMessage(myThread, messageID) {
   const message = await openai.beta.threads.messages.retrieve(
     myThread,
@@ -110,25 +95,20 @@ async function retrieveMessage(myThread, messageID) {
 
   return message;
 }
-
 export { retrieveMessage };
 
 /*Delete Assistant */
 
 /* Creating a Run */
-
 async function createRun(myThread) {
   const run = await openai.beta.threads.runs.create(myThread, {
     assistant_id: assistant_id});
 
   return run;
 }
-
 export { createRun };
 
 /* Create Response  */
-
-
 async function createResponse(myThread, myRun){
   let response = await openai.beta.threads.runs.retrieve(myThread, myRun)
 
@@ -140,7 +120,6 @@ async function createResponse(myThread, myRun){
   return response;
 
 }
-
 export { createResponse }
 
 
