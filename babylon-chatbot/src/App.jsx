@@ -9,9 +9,10 @@ import BabylonLogo from "./images/BabylonLogo.png";
 function App() {
   const [threadID, setThreadID] = useState("");
   const [runID, setRunID] = useState("");
-  const [response, setResponse] = useState([]);
+  const [response, setResponse] = useState(null);
+  const [messageListData, setMessageListData] = useState([{}]);
 
-  let message = "How are you doing?";
+  let message = "What are the dimensions of the Galleri";
 
   useEffect(() => {
     createThread()
@@ -38,24 +39,27 @@ function App() {
   useEffect(() => {
     if (runID) {
       createResponse(threadID, runID)
-        .then((obj) => {console.log("response obj"); console.log(obj)})
+        .then((obj) => {
+          if (obj !== null) { setResponse(obj); }
+        })
         .catch((error) => console.log(error));
-
-      listMessages(threadID)
-        .then((obj) => setResponse(obj.data))
-        .catch((error) => console.log(error));
-       
-      console.log("response list")
-      console.log(response);
     }
   }, [runID]);
 
   useEffect(() => {
-    if (response) {
-      const responseMessage = response.filter((obj) => obj.id === runID && obj.role === "assistant").pop();
-      console.log(responseMessage);
+    if (response !== null) {
+      listMessages(threadID)
+        .then((array) => { setMessageListData(array) })
+        .catch((error) => console.log(error));
     }
   }, [response]);
+
+  useEffect(() => {
+    if (messageListData !== null) {
+      const responseMessage = messageListData.filter((obj) => obj.run_id === runID && obj.role === "assistant").pop();
+      if(responseMessage) console.log(responseMessage.content[0]["text"].value);
+    }
+  }, [messageListData]);
 
   return (
     <>

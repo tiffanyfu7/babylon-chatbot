@@ -82,7 +82,8 @@ export { createMessage };
 async function listMessages(myThread) {
   const threadMessages = await openai.beta.threads.messages.list(myThread);
 
-  return threadMessages;
+  //console.log(threadMessages.data);
+  return threadMessages.data;
 }
 export { listMessages };
 
@@ -110,18 +111,16 @@ export { createRun };
 
 /* Create Response  */
 async function createResponse(myThread, myRun){
-  let response = await openai.beta.threads.runs.retrieve(myThread, myRun)
+  let response = await openai.beta.threads.runs.retrieve(myThread, myRun);
 
-  // while(response.status === "queued" || response.status == "in_progress"){
-  //   await new Promise((resolve) => setTimeout(resolve, 1000))
-  //   response = await openai.beta.threads.runs.retrieve(myThread, myRun)
-  // }
+  while(response.status === "queued" || response.status == "in_progress"){
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+    response = await openai.beta.threads.runs.retrieve(myThread, myRun);
+  }
 
   return response;
-
 }
 export { createResponse }
-
 
 /* Get Response */
 
