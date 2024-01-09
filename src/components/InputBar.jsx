@@ -80,7 +80,6 @@ export const InputBar = () => {
       </form>
       <h3>{submittedPrompt}</h3>{" "}
       <h3>{assistantResponse}</h3>
-
       {/* Returns the saved prompt onto the screen, now taking this we should input it into a different component for analysis */}
       {/* <AssistantProcessing message={submittedPrompt} /> */}{" "}
       {/* Potential next steps */}
