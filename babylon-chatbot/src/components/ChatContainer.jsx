@@ -22,31 +22,31 @@ export const ChatContainer = () => {
       .catch((error) => console.log(error));
   }, []);
 
-   async function handleSubmit(prompt){
+  async function handleSubmit(prompt) {
     prompt.preventDefault(); // prevents the form from autosubmitting, if you see a question mark at the https part then it is not processing the code
     const inputOfUser = prompt.target.userInput.value;
     setSubmittedPrompt(inputOfUser);
     setMessageList([...messageList, submittedPrompt]);
-    console.log(messageList);
 
-    const message = await createMessage(threadID, inputOfUser)
+    const message = await createMessage(threadID, inputOfUser);
 
-    const run = await createRun(threadID)
+    const run = await createRun(threadID);
 
-    const response = await createResponse(threadID, run.id)
+    const response = await createResponse(threadID, run.id);
 
-    const messages = await listMessages(threadID)
+    const messages = await listMessages(threadID);
 
-    console.log(messages)
+    console.log(messages);
 
-    let responseMessage = messages.filter((obj) => obj.run_id === run.id && obj.role === "assistant")
-    .pop();
+    let responseMessage = messages
+      .filter((obj) => obj.run_id === run.id && obj.role === "assistant")
+      .pop();
 
-    responseMessage = responseMessage.content[0]["text"].value
+    responseMessage = responseMessage.content[0]["text"].value;
 
-    setAssistantResponse(responseMessage)
-
-   }
+    setAssistantResponse(responseMessage);
+    
+  }
   return (
     <div>
       <div>
@@ -56,16 +56,11 @@ export const ChatContainer = () => {
             message={message}
             userOrNot={index % 2 === 0}
           />
-          )
+        ))}
 
-          
-
-
+        {assistantResponse && (
+          <MessageChannel message={assistantResponse} userOrNot={false} />
         )}
-
-      {assistantResponse && (
-        <MessageChannel message={assistantResponse} userOrNot={false} />
-      )}  
       </div>
 
       <form
