@@ -1,20 +1,27 @@
 import { useEffect, useState } from "react";
-import { createThread, createMessage, listMessages, createRun, createResponse } from ".././assistant.js";
+import { MessageChannel } from "./MessageChannel.jsx"
+import { createThread, createMessage, listMessages, createRun, createResponse } from "../assistant.js";
 
-export const InputBar = () => {
-  const [submittedPrompt, setSubmittedPrompt] = useState("");
+export const ChatContainer = () => {
+  let [submittedPrompt, setSubmittedPrompt] = useState("");
   const [threadID, setThreadID] = useState("");
   const [runID, setRunID] = useState("");
   const [response, setResponse] = useState(null);
   const [assistantResponse, setAssistantResponse] = useState("");
   const [messageListData, setMessageListData] = useState([{}]);
+  const [messageList, setMessageList] = useState([""]);
+
+
 
   const handleSubmit = (prompt) => {
     prompt.preventDefault(); // prevents the form from autosubmitting, if you see a question mark at the https part then it is not processing the code
-    console.log(prompt.target.userInput.value);
-    setSubmittedPrompt(prompt.target.userInput.value);
-    prompt.target.userInput.value = "";
+    let inputOfUser = prompt.target.userInput.value;
+    setSubmittedPrompt(inputOfUser);
+    setMessageList([...messageList, submittedPrompt]);
+
+    console.log(messageList);
   };
+
 
   useEffect(() => {
     createThread(submittedPrompt !== null)
@@ -59,12 +66,21 @@ export const InputBar = () => {
   useEffect(() => {
     if (messageListData !== null) {
       const responseMessage = messageListData.filter((obj) => obj.run_id === runID && obj.role === "assistant").pop();
-      if(responseMessage) setAssistantResponse(responseMessage.content[0]["text"].value);
-    }
-  }, [messageListData]);
+      if(responseMessage){
+        setMessageList([...messageList, (responseMessage.content[0]["text"].value)]);
+      }
+  }
+}, [messageListData]);
 
+
+ 
   return (
-    <>
+    <div>
+      <div>
+        {messageList.map((message, index) => {
+          <MessageChannel key={index} message={message} userOrNot={index%2 === 0}/>
+        })}
+      </div>
       <form
         className="box"
         method="post"
@@ -76,14 +92,10 @@ export const InputBar = () => {
             name="userInput"
             placeholder="Enter prompt here"
           />
-          <button className="submitButton">Submit</button>
+          <button className="submitButton" >Submit</button>
       </form>
-      <h3>{submittedPrompt}</h3>{" "}
-      <h3>{assistantResponse}</h3>
 
-      {/* Returns the saved prompt onto the screen, now taking this we should input it into a different component for analysis */}
-      {/* <AssistantProcessing message={submittedPrompt} /> */}{" "}
-      {/* Potential next steps */}
-    </>
+      
+    </div>
   );
 };

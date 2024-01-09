@@ -1,8 +1,5 @@
-import { useEffect, useState } from "react";
 import "./App.css";
-
-import { createThread, retrieveThread, deleteThread, createMessage, listMessages, createRun, createResponse, retrieveAssistant } from "./assistant.js";
-import { InputBar } from "./components/InputBar.jsx";
+import { ChatContainer } from "./components/ChatContainer.jsx";
 import { Links } from "./components/Links.jsx";
 import BabylonLogo from "./images/BabylonLogo.png";
 
@@ -22,7 +19,7 @@ function App() {
             <AssistantMessage />
       </MessageBox> */}
 
-      <InputBar />
+      <ChatContainer />
       
 
       <Links />
