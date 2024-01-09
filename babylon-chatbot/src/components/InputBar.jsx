@@ -17,13 +17,13 @@ export const InputBar = () => {
   };
 
   useEffect(() => {
-    createThread(submittedPrompt !== null)
+    createThread(submittedPrompt !== "")
       .then((obj) => { setThreadID(String(obj.id)) })
       .catch((error) => console.log(error));
   }, [submittedPrompt]);
 
   useEffect(() => {
-    if (threadID) {
+    if (threadID !== "") {
       createMessage(threadID, submittedPrompt)
         .then((obj) => { console.log("user message"); console.log(obj); })
         .catch((error) => console.log(error));      
