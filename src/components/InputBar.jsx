@@ -17,7 +17,6 @@ export const InputBar = () => {
         method="post"
         onSubmit={(prompt) => handleSubmit(prompt)}
       >
-        <label>
           <input
             className="inputbox"
             type="text"
@@ -25,7 +24,6 @@ export const InputBar = () => {
             placeholder="Enter prompt here"
           />
           <button className="submitButton">Submit</button>
-        </label>
       </form>
       <h3>{submittedPrompt}</h3>{" "}
       {/* Returns the saved prompt onto the screen, now taking this we should input it into a different component for analysis */}
