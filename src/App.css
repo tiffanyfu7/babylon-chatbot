@@ -1,0 +1,256 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  font-family: "Gill Sans", "Gill Sans MT";
+  font-variant: small-caps;
+  color: white;
+}
+
+/* This is the image of the Babylon Logo*/
+/*
+
+baby img:
+• height, width = change the image size
+• margin-right = pushes it slightly away from the h1 "WaterBoy ChatBot"
+• transform rotate = rotates our image, for aesthetic purposes
+• transition = this is the time for the transition when we hover
+
+baby img hover:
+• :hover --> this is a css element that can be attached anywhere
+• transform:scale(1.3) lets us increase the image size by 1.3x
+
+*/
+.babyImg {
+  height: 60px;
+  width: 60px;
+  margin-right: 5px;
+  transform: rotate(-35deg);
+  transition: 1s;
+}
+
+.babyImg:hover {
+  transform: scale(1.3);
+}
+
+/* This is for the header + subtext underneath it 
+
+chat bot header:
+• margin, position, width, top --> make sure our header is located in the center of the page
+• left: 50%;  transform: translateX(-50%); --> common way of centering the text of to the center of the page regardless of the position.
+• cursor --> makes sure we use default cursor not the auto cursor
+
+chat bot slogan:
+• same as the header
+
+*/
+.chatBotHeader {
+  text-align: center;
+  margin: 8px;
+  position: absolute;
+  width: 100%; /* keep this to make sure wording doesn't compress*/
+  top: 8%;
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: default;
+}
+
+.chatBotSlogan {
+  text-align: center;
+  margin: 10px auto;
+  position: absolute;
+  top: 18%;
+  left: 50%;
+  width: 100%;
+  transform: translateX(-50%);
+  cursor: default;
+}
+
+/* This is for the input box and its field
+
+box:
+• this is for input bar shape since it points to className for the  <form> element
+• position absolute makes our position dependent on the positions we feed it instead of the parent elements
+• bottom, width, left, transform center and locate our input box
+
+input box
+• this is for the input bar within our bar shape
+• width, height give us the shape of our box
+• padding offsets the text region within our box
+• box-sizing lets us bring margin, padding, and stuff into a box
+
+input type text
+• this is for the text we input itself
+• background white: We want background of text to be white
+• font-family: helps us give a font for the input we type in.
+• border-radius: gives the shape of our box, so we don't need to update it in input box or in box
+• color: black for the text we type in.
+
+*/
+
+.box {
+  display: block;
+  position: absolute;
+  bottom: 10%;
+  width: 80%; /* width of outside box*/
+  left: 50%;
+  transform: translateX(-50%);
+  /* Use left 50% and then transform: translateX(-50%) when you want to center anything horizonatlly across a page*/
+}
+
+.inputbox {
+  width: 100%;
+  box-sizing: border-box;
+  height: 40px;
+  padding: 25px;
+}
+
+input[type="text"] {
+  background: white;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  border-radius: 25px;
+  color: Black;
+}
+
+/* This is for the submit button below our input box
+
+submit button:
+• border radius gives us the shape
+• height gives us the height of our box, which is 50 since  our input is 40 + 10 for padding
+
+submit button hover
+• background-color and color change the background color and font color when we hover over box
+• cursor -> when we hover over submit cursor turns into grab cursors
+
+submit buttion active
+• cursor -> when we press the button, cursor changes to hand that grabs
+
+*/
+
+.submitButton {
+  border-radius: 25px;
+  height: 50px;
+}
+
+.submitButton:hover {
+  background-color: white;
+  color: black;
+  cursor: grab;
+}
+
+.submitButton:active {
+  cursor: grabbing;
+}
+
+/* This is for the footer links:
+
+babylon links:
+• border prevents the zoom in from exiting the white
+• color is the color of the text pre hover
+• display lets us show this list as a line of flex elements
+• padding helps with adding a cushion of thickness to our bar
+• transition and border radius have been explained above.
+
+babylon links hover:
+ • similar to the over hovers, this simply gives us something to hover with
+ • exactly like the logo next to waterboy, this zooms in with each hover
+
+babylon active:
+ • the cursor stays a pointer regardless of the click onto a different page
+
+list of links:
+ • background color and color set the colors of the background and font, respectively.
+ • display flex or inline-flex is necessary since this is a flex box
+ • padding for aesthetic value
+ 
+list of links ul:
+• list-style gets rid of bullet points since this is a list item
+• justify-content helps us space out the flexbox elements evenly
+• margin helps ignore margin
+• width stretches out the flexbox width to fit the whole page
+• padding inline start is necessary to center this since it adds an extra padding for no reason.
+
+*/
+
+.babylonLinks {
+  border: 2px solid white;
+  color: black;
+  display: flex;
+  padding: 10px;
+  transition: 0.2s;
+
+  border-radius: 25px;
+}
+
+.babylonLinks:hover {
+  background-color: #126180;
+  color: white;
+  transform: scale(1.2);
+  z-index: 2;
+}
+
+.babylonLinks:active {
+  cursor: pointer;
+}
+
+.listOfLinks {
+  background-color: white;
+  color: black;
+  display: flex;
+  padding: 0.25rem;
+
+  /* These help with pinning navigation bar to the bottom of the page*/
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 0;
+  position: fixed;
+}
+
+.listOfLinks ul {
+  list-style: none;
+  justify-content: space-evenly;
+  margin: 0;
+  display: flex;
+  width: 100%;
+  padding-inline-start: 0px;
+}
+
+/*
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+} */
