@@ -12,6 +12,7 @@ export const ChatContainer = () => {
   const [submittedPrompt, setSubmittedPrompt] = useState("");
   const [threadID, setThreadID] = useState("");
   const [messageList, setMessageList] = useState([""]);
+  const [assistantResponse, setAssistantResponse] = useState("");
 
   useEffect(() => {
     createThread()
@@ -42,21 +43,29 @@ export const ChatContainer = () => {
     .pop();
 
     responseMessage = responseMessage.content[0]["text"].value
-    console.log(responseMessage)
 
-    messageList.push(responseMessage)
+    setAssistantResponse(responseMessage)
 
    }
   return (
     <div>
       <div>
-        {messageList.map((message, index) => {
+        {messageList.map((message, index) => (
           <MessageChannel
             key={index}
             message={message}
             userOrNot={index % 2 === 0}
-          />;
-        })}
+          />
+          )
+
+          
+
+
+        )}
+
+      {assistantResponse && (
+        <MessageChannel message={assistantResponse} userOrNot={false} />
+      )}  
       </div>
 
       <form
