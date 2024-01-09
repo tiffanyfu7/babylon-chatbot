@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { createThread, createMessage, listMessages, createRun, createResponse } from ".././assistant.js";
+import MessageBox from "./MessageBox.jsx";
 
 export const InputBar = () => {
   const [submittedPrompt, setSubmittedPrompt] = useState("");
@@ -8,11 +9,13 @@ export const InputBar = () => {
   const [response, setResponse] = useState(null);
   const [assistantResponse, setAssistantResponse] = useState("");
   const [messageListData, setMessageListData] = useState([{}]);
+  const [messages, setMessages] = useState([{}]);
 
   const handleSubmit = (prompt) => {
     prompt.preventDefault(); // prevents the form from autosubmitting, if you see a question mark at the https part then it is not processing the code
     console.log(prompt.target.userInput.value);
     setSubmittedPrompt(prompt.target.userInput.value);
+    setMessages([...messages, { role: "user", text: prompt.target.userInput.value }]);
     prompt.target.userInput.value = "";
   };
 
@@ -26,15 +29,15 @@ export const InputBar = () => {
     if (threadID !== "") {
       createMessage(threadID, submittedPrompt)
         .then((obj) => { console.log("user message"); console.log(obj); })
-        .catch((error) => console.log(error));      
+        .catch((error) => console.log(error));
     }
   }, [threadID]);
 
   useEffect(() => {
-    if(threadID){   
+    if (threadID) {
       createRun(threadID)
-      .then((obj) => { setRunID(obj.id) })
-      .catch((error) => console.log(error))
+        .then((obj) => { setRunID(obj.id) })
+        .catch((error) => console.log(error))
     }
   }, [threadID]);
 
@@ -59,30 +62,35 @@ export const InputBar = () => {
   useEffect(() => {
     if (messageListData !== null) {
       const responseMessage = messageListData.filter((obj) => obj.run_id === runID && obj.role === "assistant").pop();
-      if(responseMessage) setAssistantResponse(responseMessage.content[0]["text"].value);
+      if (responseMessage) {
+        setAssistantResponse(responseMessage.content[0]["text"].value);
+        setMessages([...messages, { role: "assistant", text: responseMessage.content[0]["text"].value }]);
+      }
     }
   }, [messageListData]);
 
   return (
     <>
+      <div>
+        {messages.map((obj, index) => 
+          <MessageBox key={index} message= {obj.text} isUser= {obj.role} />
+        )}
+      </div>
       <form
         className="box"
         method="post"
         onSubmit={(prompt) => handleSubmit(prompt)}
       >
-          <input
-            className="inputbox"
-            type="text"
-            name="userInput"
-            placeholder="Enter prompt here"
-          />
-          <button className="submitButton">Submit</button>
+        <input
+          className="inputbox"
+          type="text"
+          name="userInput"
+          placeholder="Enter prompt here"
+        />
+        <button className="submitButton">Submit</button>
       </form>
-      <h3>{submittedPrompt}</h3>{" "}
-      <h3>{assistantResponse}</h3>
-      {/* Returns the saved prompt onto the screen, now taking this we should input it into a different component for analysis */}
-      {/* <AssistantProcessing message={submittedPrompt} /> */}{" "}
-      {/* Potential next steps */}
+      {/* <h3>{submittedPrompt}</h3>{" "}
+      <h3>{assistantResponse}</h3> */}
     </>
   );
-};
+}
