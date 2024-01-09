@@ -52,23 +52,23 @@ export const ChatContainer = () => {
    }
   return (
     <div>
-      <div>
-        { messageList.map((message_obj, index) => (
-          <MessageChannel
-            key={index}
-            message={message_obj.text}
-            role={message_obj.role}
-          />
-          )
-        )}
-      </div>
+      <div class="message-box">
+          {/* Display Previously sent messages saved to messageList */}
+          { messageList.map((message_obj, index) => (
+            <MessageChannel
+              key={index}
+              message={message_obj.text}
+              role={message_obj.role}
+            />
+            )
+          )}
 
-      <div>
-        {/* display current prompt */}
+        {/* Display Current Prompt */}
         {currentPrompt !== "none" &&
-          <div>
+          <div class="message">
             <h3> You </h3>
             <p> {currentPrompt} </p>
+            {/* Loading Bar/feature to be implemented */}
           </div>
         }
       </div>
@@ -82,7 +82,7 @@ export const ChatContainer = () => {
           className="inputbox"
           type="text"
           name="userInput"
-          placeholder="Enter prompt here"
+          placeholder="Type Your Message..."
         />
         <button type="submit" className="submitButton">
           Submit

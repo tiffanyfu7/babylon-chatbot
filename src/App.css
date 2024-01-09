@@ -219,6 +219,36 @@ list of links ul:
   padding-inline-start: 0px;
 }
 
+
+/*Added CSS for Message-Box and messages
+Mostly positional attirbutes
+*/
+.message-box{
+  height: 300px;
+  width: 90%;
+  margin-left: 5%;
+  overflow-y: auto;
+}
+
+/*Add Masked Overflow
+https://pqina.nl/blog/fade-out-overflow-using-css-mask-image */
+
+/*Add Stick scroll to bottom*/
+
+.message {
+  width: fit-content;
+  color: black;
+  white-space: pre-line;
+  line-height: 1;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 1px;
+  padding-bottom: 2px;
+  margin-bottom: 5px;
+  background-color: white;
+  border-radius: 20px;
+}
+
 /*
 
 .logo {
