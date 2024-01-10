@@ -14,6 +14,7 @@ export const ChatContainer = () => {
   const [threadID, setThreadID] = useState("");
   //messageList = [{role: , text: }...]
   const [messageList, setMessageList] = useState([{}]);
+  const [isButtonEnabled, setIsButtonEnabled] = useState(true);
 
   useEffect(() => {
     createThread()
@@ -28,6 +29,7 @@ export const ChatContainer = () => {
     const inputOfUser = prompt.target.userInput.value;
     setCurrentPrompt(inputOfUser);
     prompt.target.userInput.value = "";
+    setIsButtonEnabled(false);
 
     const message = await createMessage(threadID, inputOfUser);
 
@@ -51,6 +53,7 @@ export const ChatContainer = () => {
 
     console.log(messageList);
     setCurrentPrompt("none");
+    setIsButtonEnabled(true);
    }
   return (
     <div>
@@ -89,11 +92,10 @@ export const ChatContainer = () => {
           name="userInput"
           placeholder="Type Your Message..."
         />
-        {currentPrompt === "none" &&
-          <button type="submit" className="submitButton">
+        {/* handle selecting the CSS state of submit button */}
+          <button type="submit" className= {`submitButton ${!isButtonEnabled ? 'disabledButton' : ''}`} disabled={!isButtonEnabled}> 
             Submit
           </button>
-          }
         </div>
       </form>
     </div>

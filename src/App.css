@@ -33,6 +33,34 @@ baby img hover:
   transform: scale(1.2);
 }
 
+.assistantLogo{
+  width: 40px; /* Adjust the width as needed */
+  height: 40px; /* Adjust the height as needed */
+  margin-right: 4px; /* Adjust the margin as needed */
+  border-radius: 50%;
+  padding-top: 10px;
+  margin-left: -4px;
+  margin-top: 0px;
+  margin-bottom: -10px;
+}
+
+.userLogo{
+  width: 31px; /* Adjust the width as needed */
+  height: 31px; /* Adjust the height as needed */
+  margin-right: 9px; /* Adjust the margin as needed */
+  border-radius: 50%;
+  padding-top: 10px;
+  margin-top: 5px;
+  margin-bottom: -10px;
+}
+
+.messageHeader{
+  display: inline-block;
+  vertical-align: top;
+  max-width: calc(100% - 50px); 
+}
+
+
 /* This is for the header + subtext underneath it 
 chat bot header:
 • margin, position, width, top --> make sure our header is located in the center of the page
@@ -150,6 +178,12 @@ submit buttion active
   cursor: grabbing;
 }
 
+.submitButton.disabledButton {
+  background-color: #ccc;
+  color: #666;
+  cursor: not-allowed;
+}
+
 /* This is for the footer links:
 babylon links:
 • border prevents the zoom in from exiting the white
@@ -182,16 +216,17 @@ list of links ul:
   border: 2px solid white;
   color: black;
   display: flex;
-  padding: 4px;
+  padding: 5px;
   transition: 0.2s;
-  font-size: 13px;
+  font-size: 14px;
   border-radius: 25px;
+
 }
 
 .babylonLinks:hover {
   background-color: #126180;
   color: white;
-  transform: scale(1.1);
+  transform: scale(1.2);
   z-index: 1;
 }
 
@@ -212,6 +247,8 @@ list of links ul:
   z-index: 0;
   height: 25px;
   position: fixed;
+  padding-bottom: 16px;
+  padding-top: 10px;
 }
 
 .listOfLinks ul {
@@ -228,7 +265,7 @@ list of links ul:
   width: 25px;
   padding: 4px;
   margin-right: 5px;
-  transition: 1s;
+  
 }
 
 .instagramImage:hover {
