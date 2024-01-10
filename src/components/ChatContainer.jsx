@@ -9,7 +9,6 @@ import {
 } from "../assistant.js";
 
 export const ChatContainer = () => {
-  //current prompt being sent by user
   const [currentPrompt, setCurrentPrompt] = useState("none");
   const [threadID, setThreadID] = useState("");
   //messageList = [{role: , text: }...]
@@ -79,7 +78,7 @@ export const ChatContainer = () => {
         }
         <div id="anchor"></div>
       </div>
-
+      
       <form
         className="box"
         method="post"

@@ -363,9 +363,9 @@ https://pqina.nl/blog/fade-out-overflow-using-css-mask-image */
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
 }
 
-#copy-button {
+.accessibility-button {
   border-radius: 15px;
   font-size: 10px;
   background-color: #79AE93;
-  margin-bottom: 15px;
+  margin: 0px 5px 15px 0px;
 }
