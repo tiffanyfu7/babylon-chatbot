@@ -12,9 +12,9 @@ This ChatBot serves as the first line of customer service for Babylon's expandin
 
 ## How to Install and Run:
 ##### Prequisites: Ensure You have Node.js and npm installed on your system (check using `npm -v` or install [here](https://nodejs.org/en/download))
-1. Clone the repo using `git clone [THIS_GITHUB_URL]` 
+1. Clone the repo using `git clone [THIS_GITHUB_URL]` and then navigate into the project directory using `cd babylon-microfarms-chatbot` 
 2. Install dependencies from the package-lock-json using `npm install`
-3. Run the app using `npm run start` to launch in your browser
+3. Run the app using `npm run dev` to launch in your browser using Vite
 
 ##### Handling the API Key:
 To correctly build an assistant, simply set up an .env file in your project's root directory with an OPENAI API Key and assistant ID.
