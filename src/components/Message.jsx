@@ -38,16 +38,16 @@ export const Message = ({ message, role }) => {
                     <p>{message}</p>
                     {message !== "Fetching a Response..." &&
                         <>
-                            <button
-                                className="accessibility-button"
-                                onClick={() => speak({ text: message })}
-                                >Speak
-                            </button>
                             <button className="accessibility-button"
                                 onClick={() => { navigator.clipboard.writeText(message); setCopy('Copied') }}
                             >
                                 {copy}
                             </button >
+                            <button
+                                className="accessibility-button"
+                                onClick={() => speak({ text: message })}
+                                >Speak
+                            </button>
                         </>
                     }
             </div>
