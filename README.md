@@ -4,6 +4,7 @@
 This is a ChatBot Application using OpenAI's Assistants API and was programmed using React and styled with CSS. 
 
 The App component consists of a Header, ChatContainer, Message(s), and Links component. 
+
 <img width="887" alt="Screen Shot 2024-01-10 at 2 18 26 PM" src="https://github.com/tiffanyfu7/babylon-microfarms-chatbot/assets/71473099/607acc80-3325-4d81-923f-ece5e9277b7c">
 
 Babylon Micro-Farms was founded Alexander Olesen and Graham Smith with the goal of bringing the benefits of sustainable hydroponic farming to anyone who needs it.
