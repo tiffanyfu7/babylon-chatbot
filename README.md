@@ -11,7 +11,7 @@ The App component consists of a Header, ChatContainer, Message(s), and Links com
 
 Babylon Micro-Farms was founded Alexander Olesen and Graham Smith with a goal to bring the benefits of sustainable hydroponic farming to anyone who needs it.
 
-This ChatBot serves as the first line of customer service for Babylon's expandng array of products. 
+This ChatBot serves as the first line of customer service for Babylon's expanding array of products. 
 
 ## How to Install and Run:
 
@@ -20,7 +20,7 @@ This ChatBot serves as the first line of customer service for Babylon's expandng
 To correctly build an assistant simply set up an .env file with an OPEN AI API Key and assistant ID.
 
 VITE_OPENAI_API_KEY = "[api_key]"
-VITE_OPENAI_ASSISTANT_ID = "assistant_id]"
+VITE_OPENAI_ASSISTANT_ID = "[assistant_id]"
 
 ## Credits:
 Built during Forge's SWE Launch Crash Course Jan 2024 by Tiffany Fu, Samuel Glasscock, and Rishi Sarraff. Supervised by Byron Richards and Simon Anderson.
