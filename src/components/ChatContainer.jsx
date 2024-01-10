@@ -9,11 +9,12 @@ import {
 } from "../assistant.js";
 
 export const ChatContainer = () => {
-  //current prompt being sent
+  //current prompt being sent by user
   const [currentPrompt, setCurrentPrompt] = useState("none");
   const [threadID, setThreadID] = useState("");
   //messageList = [{role: , text: }...]
   const [messageList, setMessageList] = useState([{}]);
+  const [isButtonEnabled, setIsButtonEnabled] = useState(true);
 
   useEffect(() => {
     createThread()
@@ -28,6 +29,7 @@ export const ChatContainer = () => {
     const inputOfUser = prompt.target.userInput.value;
     setCurrentPrompt(inputOfUser);
     prompt.target.userInput.value = "";
+    setIsButtonEnabled(false);
 
     const message = await createMessage(threadID, inputOfUser);
 
@@ -51,10 +53,11 @@ export const ChatContainer = () => {
 
     console.log(messageList);
     setCurrentPrompt("none");
+    setIsButtonEnabled(true);
    }
   return (
     <div>
-      <div class="messageBox">
+      <div className="masked-overflow" id="messageBox">
         {/* Display Previously sent messages saved to messageList */}
           { messageList.map((message_obj, index) => (
             <MessageChannel
@@ -74,6 +77,7 @@ export const ChatContainer = () => {
               role={"assistant"} />
           </div>
         }
+        <div id="anchor"></div>
       </div>
 
       <form
@@ -88,11 +92,10 @@ export const ChatContainer = () => {
           name="userInput"
           placeholder="Type Your Message..."
         />
-        {currentPrompt === "none" &&
-          <button type="submit" className="submitButton">
+        {/* handle selecting the CSS state of submit button */}
+          <button type="submit" className= {`submitButton ${!isButtonEnabled ? 'disabledButton' : ''}`} disabled={!isButtonEnabled}> 
             Submit
           </button>
-          }
         </div>
       </form>
     </div>
