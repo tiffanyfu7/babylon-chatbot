@@ -1,3 +1,5 @@
+import InstagramLogo from "./InstagramLogo.png";
+
 export const Links = () => {
   return (
     <>
@@ -53,7 +55,13 @@ export const Links = () => {
                 Get a Quote
               </a>
             </li>
-
+            <a href="https://www.instagram.com/babylonmicrofarms/?hl=en" target="_blank">
+              <img
+                className="instagramImage"
+                src={InstagramLogo}
+                alt="Instagram Logo"
+              />
+            </a>
           </ul>
         </nav>
     </>

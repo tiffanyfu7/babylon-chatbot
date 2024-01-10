@@ -10,10 +10,10 @@ function App() {
       <h1 className="chatBotHeader">
         {" "}
         <img className="babyImg" src={BabylonLogo} alt="Babylon Farms Logo" />
-        WaterBoy ChatBot
+        WaterBoy
       </h1>
 
-      <p className="chatBotSlogan"> Meet WaterBoy, your personal Babylon AI</p>
+      <p className="chatBotSlogan"> Meet WaterBoy, your personal Babylon Micro-Farms ChatBot</p>
 
       <ChatContainer/>
       

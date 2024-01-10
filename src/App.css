@@ -51,7 +51,7 @@ chat bot slogan:
   margin: 8px;
   position: absolute;
   width: 100%; /* keep this to make sure wording doesn't compress*/
-  top: 8%;
+  top: 6%;
   left: 50%;
   transform: translateX(-50%);
   cursor: default;
@@ -61,7 +61,7 @@ chat bot slogan:
   text-align: center;
   margin: 10px auto;
   position: absolute;
-  top: 18%;
+  top: 17%;
   left: 50%;
   width: 100%;
   transform: translateX(-50%);
@@ -91,12 +91,15 @@ input type text
 */
 
 .box {
-  display: block;
   position: absolute;
   bottom: 10%;
-  width: 80%; /* width of outside box*/
+  width: 80%;
+  /* width of outside box*/
   left: 50%;
   transform: translateX(-50%);
+  overflow-y: auto;
+  z-index: 1;
+
   /* Use left 50% and then transform: translateX(-50%) when you want to center anything horizonatlly across a page*/
 }
 
@@ -105,13 +108,21 @@ input type text
   box-sizing: border-box;
   height: 0px;
   padding: 20px;
+  overflow-y: auto;
+
+}
+
+.input-container {
+  display: flex;
+  position: relative;
 }
 
 input[type="text"] {
   background: white;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  border-radius: 25px;
+  border-radius: 25px 0 0 25px;
   color: Black;
+  overflow-y: auto;
 }
 
 /* This is for the submit button below our input box
@@ -130,9 +141,11 @@ submit buttion active
 */
 
 .submitButton {
-  border-radius: 25px;
-  height: 50px;
-  margin-top: 8px;
+  border-radius: 0 25px 25px 0;
+  height: 44px;
+  z-index: 2;
+  position: relative;
+  bottom: 0;
 }
 
 .submitButton:hover {
@@ -182,7 +195,6 @@ list of links ul:
   padding: 8px;
   transition: 0.2s;
   font-size: 12px;
-
   border-radius: 25px;
 }
 
@@ -220,16 +232,43 @@ list of links ul:
   padding-inline-start: 0px;
 }
 
+.instagramImage {
+  height: 25px;
+  width: 25px;
+  padding: 8px;
+  margin-right: 5px;
+  transition: 1s;
+}
+
+.instagramImage:hover {
+  transform: scale(1.2);
+}
 
 /*Added CSS for Message-Box and messages
 Mostly positional attirbutes
 */
-.message-box{
+/* .message-box{
   height: 300px;
   width: 90%;
   margin: auto;
   margin-left: 5%;
   overflow-y: auto;
+} */
+
+.messageBox {
+  margin: 8px;
+  padding: 10px;
+  position: absolute;
+  width: 80%;
+  height: 55%;
+  top: 21%;
+  cursor: default;
+  overflow-y: auto;
+  left: 50%;
+  transform: translate(-50%);
+  box-shadow: 15px 15px 15px 15px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  text-align: right;
 }
 
 /*Add Masked Overflow
@@ -239,6 +278,7 @@ https://pqina.nl/blog/fade-out-overflow-using-css-mask-image */
 
 .message {
   width: fit-content;
+  overflow-y: auto;
   color: black;
   white-space: pre-line;
   line-height: 1.25;
@@ -246,6 +286,7 @@ https://pqina.nl/blog/fade-out-overflow-using-css-mask-image */
   padding: 1px 15px 2px 15px;
   margin-bottom: 10px;
   border-radius: 20px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
 }
 
 /*

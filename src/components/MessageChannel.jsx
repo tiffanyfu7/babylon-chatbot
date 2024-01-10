@@ -7,7 +7,7 @@ export const MessageChannel = ({ message, role }) => {
             <div
                 class="message"
                 // style={{ textAlign: "right", marginRight: "0px" }}
-                style={{ backgroundColor: "lightGreen"}}
+                style={{ backgroundColor: "#cff4cd"}}
             >
                 <h4 style={{ marginBottom: "-15px" }} >You</h4>
                 <p>{message}</p>
