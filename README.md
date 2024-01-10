@@ -1,4 +1,4 @@
-# WaterBoy, An AI-Powered ChatBot for Babylon Micro-Farms
+# :droplet: WaterBoy, An AI-Powered ChatBot for Babylon Micro-Farms :seedling:
 
 ## Table of Contents (optional)
 
