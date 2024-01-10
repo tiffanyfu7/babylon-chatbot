@@ -2,11 +2,15 @@ import "./App.css";
 import { Links } from "./components/Links.jsx";
 import BabylonLogo from "./components/images/BabylonLogo.png";
 import { ChatContainer } from "./components/ChatContainer.jsx";
+import { PreLoader } from "./components/PreLoader.jsx"
 
 function App() {
   
   return (
+    
     <>
+      <PreLoader />
+
       <h1 className="chatBotHeader">
         {" "}
         <img className="babyImg" src={BabylonLogo} alt="Babylon Farms Logo" />
