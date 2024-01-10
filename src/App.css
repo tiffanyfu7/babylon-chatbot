@@ -158,6 +158,12 @@ submit buttion active
   cursor: grabbing;
 }
 
+.submitButton.disabledButton {
+  background-color: #ccc;
+  color: #666;
+  cursor: not-allowed;
+}
+
 /* This is for the footer links:
 
 babylon links:
