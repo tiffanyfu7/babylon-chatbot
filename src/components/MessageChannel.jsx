@@ -12,7 +12,7 @@ export const MessageChannel = ({ message, role }) => {
             <div
                 className="message"
                 // style={{ textAlign: "right", marginRight: "0px" }}
-                style={{ backgroundColor: "#cff4cd"}}
+                style={{ backgroundColor: "#79AE93"}}
             >
             <img className="userLogo" src={UserIcon} alt="User Logo"/>
             <div className="messageHeader">
