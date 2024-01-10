@@ -11,7 +11,6 @@
 
 /* This is the image of the Babylon Logo*/
 /*
-
 baby img:
 • height, width = change the image size
 • margin-right = pushes it slightly away from the h1 "WaterBoy ChatBot"
@@ -21,11 +20,10 @@ baby img:
 baby img hover:
 • :hover --> this is a css element that can be attached anywhere
 • transform:scale(1.3) lets us increase the image size by 1.3x
-
 */
 .babyImg {
-  height: 60px;
-  width: 60px;
+  height: 50px;
+  width: 50px;
   margin-right: 5px;
   transform: rotate(-35deg);
   transition: 1s;
@@ -64,7 +62,6 @@ baby img hover:
 
 
 /* This is for the header + subtext underneath it 
-
 chat bot header:
 • margin, position, width, top --> make sure our header is located in the center of the page
 • left: 50%;  transform: translateX(-50%); --> common way of centering the text of to the center of the page regardless of the position.
@@ -72,7 +69,6 @@ chat bot header:
 
 chat bot slogan:
 • same as the header
-
 */
 .chatBotHeader {
   text-align: center;
@@ -97,7 +93,6 @@ chat bot slogan:
 }
 
 /* This is for the input box and its field
-
 box:
 • this is for input bar shape since it points to className for the  <form> element
 • position absolute makes our position dependent on the positions we feed it instead of the parent elements
@@ -115,7 +110,6 @@ input type text
 • font-family: helps us give a font for the input we type in.
 • border-radius: gives the shape of our box, so we don't need to update it in input box or in box
 • color: black for the text we type in.
-
 */
 
 .box {
@@ -154,7 +148,6 @@ input[type="text"] {
 }
 
 /* This is for the submit button below our input box
-
 submit button:
 • border radius gives us the shape
 • height gives us the height of our box, which is 50 since  our input is 40 + 10 for padding
@@ -165,7 +158,6 @@ submit button hover
 
 submit buttion active
 • cursor -> when we press the button, cursor changes to hand that grabs
-
 */
 
 .submitButton {
@@ -186,8 +178,13 @@ submit buttion active
   cursor: grabbing;
 }
 
-/* This is for the footer links:
+.submitButton.disabledButton {
+  background-color: #ccc;
+  color: #666;
+  cursor: not-allowed;
+}
 
+/* This is for the footer links:
 babylon links:
 • border prevents the zoom in from exiting the white
 • color is the color of the text pre hover
@@ -213,23 +210,23 @@ list of links ul:
 • margin helps ignore margin
 • width stretches out the flexbox width to fit the whole page
 • padding inline start is necessary to center this since it adds an extra padding for no reason.
-
 */
 
 .babylonLinks {
   border: 2px solid white;
   color: black;
   display: flex;
-  padding: 8px;
+  padding: 5px;
   transition: 0.2s;
-  font-size: 12px;
+  font-size: 14px;
   border-radius: 25px;
+
 }
 
 .babylonLinks:hover {
   background-color: #126180;
   color: white;
-  transform: scale(1.1);
+  transform: scale(1.2);
   z-index: 1;
 }
 
@@ -248,7 +245,10 @@ list of links ul:
   right: 0;
   left: 0;
   z-index: 0;
+  height: 25px;
   position: fixed;
+  padding-bottom: 16px;
+  padding-top: 10px;
 }
 
 .listOfLinks ul {
@@ -263,27 +263,17 @@ list of links ul:
 .instagramImage {
   height: 25px;
   width: 25px;
-  padding: 8px;
+  padding: 4px;
   margin-right: 5px;
-  transition: 1s;
+  
 }
 
 .instagramImage:hover {
   transform: scale(1.2);
 }
 
-/*Added CSS for Message-Box and messages
-Mostly positional attirbutes
-*/
-/* .message-box{
-  height: 300px;
-  width: 90%;
-  margin: auto;
-  margin-left: 5%;
-  overflow-y: auto;
-} */
-
-.messageBox {
+/*CSS for Message-Box and messages*/
+#messageBox {
   margin: 8px;
   padding: 10px;
   position: absolute;
@@ -294,15 +284,18 @@ Mostly positional attirbutes
   overflow-y: auto;
   left: 50%;
   transform: translate(-50%);
-  box-shadow: 15px 15px 15px 15px 15px rgba(0, 0, 0, 0.1);
-  border-radius: 15px;
   text-align: right;
 }
 
-/*Add Masked Overflow
-https://pqina.nl/blog/fade-out-overflow-using-css-mask-image */
+/*Pins Scroll to Bottom*/
+#messageBox * {
+  overflow-anchor: none;
+}
 
-/*Add Stick scroll to bottom*/
+#anchor {
+  overflow-anchor: auto;
+  height: 1px;
+}
 
 .message {
   width: fit-content;
@@ -311,46 +304,62 @@ https://pqina.nl/blog/fade-out-overflow-using-css-mask-image */
   white-space: pre-line;
   line-height: 1.25;
   text-align: left;
-  padding: 1px 15px 2px 15px;
-  margin-bottom: 10px;
+  padding: 1px 30px 2px 15px;
+  margin-bottom: 15px;
+  margin-right: 15px;
   border-radius: 20px;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
 }
 
-/*
+/*Add Masked Overflow
+https://pqina.nl/blog/fade-out-overflow-using-css-mask-image */
+.masked-overflow {
+  /* scroll bar width, for use in mask calculations */
+  --scrollbar-width: 5px;
+  /* mask fade distance, for use in mask calculations */
+  --mask-height: 18px;
+  /* If content exceeds height of container, overflow! */
+  overflow-y: auto;
+  /* Our height limit */
+  height: 300px;
+  /* Need to make sure container has bottom space,
+  otherwise content at the bottom is always faded out */
+  padding-bottom: var(--mask-height);
+  /* The CSS mask */
+  /* The content mask is a linear gradient from top to bottom */
+  --mask-image-content: linear-gradient(to bottom,
+      transparent,
+      #126180 var(--mask-height),
+      #126180 calc(100% - var(--mask-height)),
+      transparent);
+  /* Here we scale the content gradient to the width of the container 
+  minus the scrollbar width. The height is the full container height */
+  --mask-size-content: calc(100% - var(--scrollbar-width)) 100%;
+  /* The scrollbar mask is a blue pixel */
+  --mask-image-scrollbar: linear-gradient(#126180, #126180);
+  /* The width of our blue pixel is the width of the scrollbar.
+  The height is the full container height */
+  --mask-size-scrollbar: var(--scrollbar-width) 100%;
+  /* Apply the mask image and mask size variables */
+  mask-image: var(--mask-image-content), var(--mask-image-scrollbar);
+  mask-size: var(--mask-size-content), var(--mask-size-scrollbar);
+  /* Position the content gradient in the top left, and the 
+  scroll gradient in the top right */
+  mask-position: 0 0, 100% 0;
+  /* We don't repeat our mask images */
+  mask-repeat: no-repeat, no-repeat;
+}
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.masked-overflow::-webkit-scrollbar {
+  width: var(--scrollbar-width);
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.masked-overflow::-webkit-scrollbar-thumb {
+    /* always round */
+  background-color: currentColor;
+  border-radius: 9999px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.masked-overflow::-webkit-scrollbar-track {
+  background-color: transparent;
 }
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-} */
