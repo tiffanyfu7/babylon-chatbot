@@ -1,7 +1,7 @@
 import "./App.css";
 import { Links } from "./components/Links.jsx";
-import BabylonLogo from "./images/BabylonLogo.png";
-import { ChatContainer } from "./components/ChatContainer";
+import BabylonLogo from "./components/images/BabylonLogo.png";
+import { ChatContainer } from "./components/ChatContainer.jsx";
 
 function App() {
   

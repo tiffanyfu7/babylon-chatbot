@@ -35,6 +35,34 @@ baby img hover:
   transform: scale(1.2);
 }
 
+.assistantLogo{
+  width: 40px; /* Adjust the width as needed */
+  height: 40px; /* Adjust the height as needed */
+  margin-right: 4px; /* Adjust the margin as needed */
+  border-radius: 50%;
+  padding-top: 10px;
+  margin-left: -4px;
+  margin-top: 0px;
+  margin-bottom: -10px;
+}
+
+.userLogo{
+  width: 31px; /* Adjust the width as needed */
+  height: 31px; /* Adjust the height as needed */
+  margin-right: 9px; /* Adjust the margin as needed */
+  border-radius: 50%;
+  padding-top: 10px;
+  margin-top: 5px;
+  margin-bottom: -10px;
+}
+
+.messageHeader{
+  display: inline-block;
+  vertical-align: top;
+  max-width: calc(100% - 50px); 
+}
+
+
 /* This is for the header + subtext underneath it 
 
 chat bot header:
