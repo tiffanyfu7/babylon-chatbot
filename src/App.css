@@ -311,6 +311,93 @@ list of links ul:
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
 }
 
+/* "..." For when Assistant fetching response 
+  From: https://codepen.io/nzbin/pen/GGrXbp
+  */
+ /* Dot Pulse */
+.stage {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 1px 30px 2px 15px;
+  margin-bottom: 10px;
+  margin-right: 5px;
+  border-radius: 20px;
+}
+.dot-pulse {
+  position: relative;
+  left: -9999px;
+  width: 6px;
+  height: 6px;
+  border-radius: 3px;
+  background-color: #FFF;
+  color: #79AE93;
+  box-shadow: 9999px 0 0 -5px;
+  animation: dot-pulse 1.5s infinite linear;
+  animation-delay: 0.25s;
+  margin: 0 2px;
+  margin-right: 2px;
+  margin-bottom: 2px;
+}
+.dot-pulse::before, .dot-pulse::after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 3px;
+  background-color: #FFF;
+  color: #79AE93;
+  margin: 0 2px;
+  margin-bottom: 2px;
+}
+.dot-pulse::before {
+  box-shadow: 9984px 0 0 -5px;
+  animation: dot-pulse-before 1.5s infinite linear;
+  animation-delay: 0s;
+}
+.dot-pulse::after {
+  box-shadow: 10014px 0 0 -5px;
+  animation: dot-pulse-after 1.5s infinite linear;
+  animation-delay: 0.5s;
+}
+
+@keyframes dot-pulse-before {
+  0% {
+    box-shadow: 9984px 0 0 -5px;
+  }
+  30% {
+    box-shadow: 9984px 0 0 2px;
+  }
+  60%, 100% {
+    box-shadow: 9984px 0 0 -5px;
+  }
+}
+@keyframes dot-pulse {
+  0% {
+    box-shadow: 9999px 0 0 -5px;
+  }
+  30% {
+    box-shadow: 9999px 0 0 2px;
+  }
+  60%, 100% {
+    box-shadow: 9999px 0 0 -5px;
+  }
+}
+@keyframes dot-pulse-after {
+  0% {
+    box-shadow: 10014px 0 0 -5px;
+  }
+  30% {
+    box-shadow: 10014px 0 0 2px;
+  }
+  60%, 100% {
+    box-shadow: 10014px 0 0 -5px;
+  }
+}
+
+
 /*Add Masked Overflow
 https://pqina.nl/blog/fade-out-overflow-using-css-mask-image */
 .masked-overflow {

@@ -73,8 +73,8 @@ export const ChatContainer = () => {
               message={currentPrompt}
               role={"user"} />
             <MessageChannel
-              message="Fetching a Response..."
-              role={"assistant"} />
+                message="loading" // direct inject message to trigger Message to use animation
+                role={"assistant"} /> 
           </div>
         }
         <div id="anchor"></div>

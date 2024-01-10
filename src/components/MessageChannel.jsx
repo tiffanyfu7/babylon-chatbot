@@ -27,11 +27,12 @@ export const MessageChannel = ({ message, role }) => {
             </>
         )
     }
+
     //if message is sent from assistant align left (not working)
     else if(role === "assistant") {
         return (
             <div
-                class="message"
+                className="message"
                 // style={{ textAlign: "left", marginLeft: "0px" }}
                 style={{ backgroundColor: "white"}}
             >
@@ -39,9 +40,17 @@ export const MessageChannel = ({ message, role }) => {
                 <div className="messageHeader">
                 <h4 style={{ marginBottom: "-15px" }}>WaterBoy</h4>
                 </div>
-                <p>{message}</p>
+                {/* if waiting for assistant response (message==="loading"), display animation, otherwise display message*/}
+                {message === "loading" ? (
+                    <div className="stage">
+                        <p></p>
+                    <div className="dot-pulse"></div>
+                </div>
+                ) : (
+                    <p>{message}</p>
+                )}
             </div>
-        )
+        );
     }
     else return <></>
 }
