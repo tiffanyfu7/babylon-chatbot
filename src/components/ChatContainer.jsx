@@ -14,7 +14,6 @@ export const ChatContainer = () => {
   const [threadID, setThreadID] = useState("");
   //messageList = [{role: , text: }...]
   const [messageList, setMessageList] = useState([{}]);
-  const [assistantResponse, setAssistantResponse] = useState("");
 
   useEffect(() => {
     createThread()
@@ -44,31 +43,30 @@ export const ChatContainer = () => {
     responseMessage = responseMessage.content[0]["text"].value;
 
     setMessageList([...messageList, { role: "user", text: inputOfUser }, { role: "assistant", text: responseMessage }])
-    setAssistantResponse(responseMessage)
 
     console.log(messageList);
     setCurrentPrompt("none");
-
    }
   return (
     <div>
       <div class="message-box">
-          {/* Display Previously sent messages saved to messageList */}
+        {/* Display Previously sent messages saved to messageList */}
           { messageList.map((message_obj, index) => (
             <MessageChannel
               key={index}
               message={message_obj.text}
-              role={message_obj.role}
-            />
-            )
-          )}
+              role={message_obj.role} /> )
+        )}
 
         {/* Display Current Prompt */}
         {currentPrompt !== "none" &&
-          <div class="message">
-            <h3> You </h3>
-            <p> {currentPrompt} </p>
-            {/* Loading Bar/feature to be implemented */}
+          <div>
+            <MessageChannel
+              message={currentPrompt}
+              role={"user"} />
+            <MessageChannel
+              message="Fetching a Response..."
+              role={"assistant"} />
           </div>
         }
       </div>
@@ -84,9 +82,11 @@ export const ChatContainer = () => {
           name="userInput"
           placeholder="Type Your Message..."
         />
-        <button type="submit" className="submitButton">
-          Submit
-        </button>
+        {currentPrompt === "none" &&
+          <button type="submit" className="submitButton">
+            Submit
+          </button>
+        }
       </form>
     </div>
   );
