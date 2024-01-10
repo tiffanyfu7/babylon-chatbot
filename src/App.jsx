@@ -2,12 +2,10 @@ import "./App.css";
 import { Links } from "./components/Links.jsx";
 import BabylonLogo from "./components/images/BabylonLogo.png";
 import { ChatContainer } from "./components/ChatContainer.jsx";
-import { PreLoader } from "./components/PreLoader.jsx"
+import { PreLoader } from "./components/PreLoader.jsx";
 
 function App() {
-  
   return (
-    
     <>
       <PreLoader />
 
@@ -17,10 +15,13 @@ function App() {
         WaterBoy
       </h1>
 
-      <p className="chatBotSlogan"> Meet WaterBoy, your personal Babylon Micro-Farms ChatBot</p>
+      <p className="chatBotSlogan">
+        {" "}
+        Meet WaterBoy, your personal Babylon Micro-Farms ChatBot
+      </p>
 
-      <ChatContainer/>
-      
+      <ChatContainer />
+
       <Links />
     </>
   );

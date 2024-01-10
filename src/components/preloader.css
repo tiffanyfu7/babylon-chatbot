@@ -1,67 +1,56 @@
-.preloader{
-    height: 100vh;
-    width: 100%;
-    background-color: #004357;
-    color: white;
-    position: fixed;
-    bottom:0;
-    left:0;
-    right:0;
-    top:0;
-    z-index: 55;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-
+.preloader {
+  height: 100vh;
+  width: 100%;
+  background-color: #004357;
+  color: white;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 55;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
 }
 
-.preloader .textContainer{
-     display: inline-block;
-     align-items: center;
-     align-content: center;
-     justify-content: space-between;
-     height: 50vh;
-     width: fit-content;
-     font-size: 90px;
-     overflow:hidden;
-     color: white;
-     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-     font-weight:600;
-     letter-spacing: 20px;
+.preloader .textContainer {
+  display: inline-block;
+  align-items: center;
+  align-content: center;
+  justify-content: space-between;
+  height: 50vh;
+  width: fit-content;
+  font-size: 90px;
+  overflow: hidden;
+  color: white;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-weight: 600;
+  letter-spacing: 20px;
 
-     margin-right: -20px;
-
-
-     transform: translate(0%, 70%);
+  transform: translate(2%, 70%);
 }
 
-.centered-content{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-
+.centered-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.rsup{
-    font-size: 15px;
+.rsup {
+  font-size: 15px;
 }
 
-
-.BabyLogo3{
-    height: 90px;
-    width: 90px;
-    position: absolute;
-    top: 25vh;
-    transform: translateX(-50%);
-
+.BabyLogo3 {
+  height: 90px;
+  width: 90px;
+  position: absolute;
+  top: 25vh;
+  transform: translateX(-50%);
 }
 
-
-.subtitle{
-    font-size: 20px;
-    letter-spacing: normal;
-    text-align:center;
-    transform: translateX(0%)
-
+.subtitle {
+  font-size: 20px;
+  letter-spacing: normal;
+  text-align: center;
 }

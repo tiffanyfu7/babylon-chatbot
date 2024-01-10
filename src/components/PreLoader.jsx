@@ -9,32 +9,21 @@ export const PreLoader = () => {
   }, []);
 
   return (
-    
-   
     <div className="preloader">
-         <img
+      <img
         className="BabyLogo3"
         src={BabylonLogo3}
         alt="Babylon Micro-Farms Logo"
       />
-     <div className="centeredContent">
-
-
-      
-
-      <div className="textContainer">
-
-       
-          BABYLON<sup>
+      <div className="centeredContent">
+        <div className="textContainer">
+          BABYLON
+          <sup>
             <sup className="rsup">Ⓡ</sup>
           </sup>
-          
-        <p className="subtitle"> Harvest Anywhere. </p>
+          <p className="subtitle">Harvest Anywhere</p>
         </div>
       </div>
-
-      </div>
-
-    
+    </div>
   );
 };
