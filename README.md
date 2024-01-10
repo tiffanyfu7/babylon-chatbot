@@ -24,7 +24,9 @@ VITE_OPENAI_ASSISTANT_ID = "[assistant_id]"
 
 ## How to Use:
 __Starting WaterBoy:__ Upon launching, the chatbot interface is immediately accesible<br>
+
 __Interacting with WaterBoy:__ Type your micro-farming questions in the chat box and press the Submit button or enter. Upon processing, WaterBoy will respond with relevant information, tips, and actions.<br>
+
 __Additional Features:__ Explore the various functionalities such as the text-to-speech feature or the assistant's response copy feature
 
 ## Credits:
