@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { MessageChannel } from "./MessageChannel.jsx";
+import { Message } from "./Message.jsx";
 import {
   createThread,
   createMessage,
@@ -60,7 +60,7 @@ export const ChatContainer = () => {
       <div className="masked-overflow" id="messageBox">
         {/* Display Previously sent messages saved to messageList */}
           { messageList.map((message_obj, index) => (
-            <MessageChannel
+            <Message
               key={index}
               message={message_obj.text}
               role={message_obj.role} /> )
@@ -69,10 +69,10 @@ export const ChatContainer = () => {
         {/* Display Current Prompt */}
         {currentPrompt !== "none" &&
           <div>
-            <MessageChannel
+            <Message
               message={currentPrompt}
               role={"user"} />
-            <MessageChannel
+            <Message
               message="Fetching a Response..."
               role={"assistant"} />
           </div>
