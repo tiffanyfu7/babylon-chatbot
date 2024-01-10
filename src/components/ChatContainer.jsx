@@ -54,7 +54,7 @@ export const ChatContainer = () => {
    }
   return (
     <div>
-      <div class="message-box">
+      <div class="messageBox">
         {/* Display Previously sent messages saved to messageList */}
           { messageList.map((message_obj, index) => (
             <MessageChannel
@@ -81,6 +81,7 @@ export const ChatContainer = () => {
         method="post"
         onSubmit={(prompt) => handleSubmit(prompt)}
       >
+        <div className="input-container">
         <input
           className="inputbox"
           type="text"
@@ -91,7 +92,8 @@ export const ChatContainer = () => {
           <button type="submit" className="submitButton">
             Submit
           </button>
-        }
+          }
+        </div>
       </form>
     </div>
   );
