@@ -4,7 +4,7 @@ const assistant_id = import.meta.env.VITE_OPENAI_ASSISTANT_ID;
 
 const openai = new OpenAI({
   apiKey: import.meta.env.VITE_OPENAI_API_KEY,
-  dangerouslyAllowBrowser: true
+  dangerouslyAllowBrowser: true,
 });
 
 /*Retrieve Assistant*/
@@ -13,8 +13,8 @@ async function retrieveAssistant() {
     import.meta.env.VITE_OPENAI_ASSISTANT_ID
   );
 
-  console.log(myAssistant.name);
-};
+  return myAssistant.name;
+}
 // {
 //   "id": "asst_abc123",
 //   "object": "assistant",
@@ -103,31 +103,36 @@ export { retrieveMessage };
 /* Creating a Run */
 async function createRun(myThread) {
   const run = await openai.beta.threads.runs.create(myThread, {
-    assistant_id: assistant_id});
+    assistant_id: assistant_id,
+  });
 
   return run;
 }
 export { createRun };
 
+/* Delete a Run */
+
 /* Create Response  */
-async function createResponse(myThread, myRun){
-  let response = await openai.beta.threads.runs.retrieve(myThread, myRun);
+async function createResponse(myThread, myRun) {
+  try {
+    let response = await openai.beta.threads.runs.retrieve(myThread, myRun);
 
-  while(response.status === "queued" || response.status == "in_progress"){
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    response = await openai.beta.threads.runs.retrieve(myThread, myRun);
+    while (response.status === "queued" || response.status == "in_progress") {
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      response = await openai.beta.threads.runs.retrieve(myThread, myRun);
+    }
+
+    return response;
+    
+  } catch (error) {
+    console.log(error)
   }
-
-  return response;
 }
-export { createResponse }
+export { createResponse };
 
 /* Get Response */
 
-
-
 /* Display OpenAI API Assistant Response */
-
 
 // if(runID){
 //   createResponse(threadID, runID)
@@ -150,9 +155,6 @@ export { createResponse }
 
 //   console.log(responseMessage);
 
-
 // }
-
-
 
 // }, [runID])

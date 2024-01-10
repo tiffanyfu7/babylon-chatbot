@@ -5,8 +5,12 @@ export const Links = () => {
           <ul>
 
             <li>
-              <a className="babylonLinks" href="https://babylonmicrofarms.com/">
-                Babylon Microfarms Website
+              <a
+                className="babylonLinks"
+                href="https://babylonmicrofarms.com/"
+                target="_blank"
+              >
+                Babylon Micro-Farms Website
               </a>
             </li>
 
@@ -14,6 +18,7 @@ export const Links = () => {
               <a
                 className="babylonLinks"
                 href="https://babylonmicrofarms.com/the-galleri-by-babylon-micro-farms/"
+                target="_blank"
               >
                 Galleri Micro-Farm
               </a>
@@ -23,6 +28,7 @@ export const Links = () => {
               <a
                 className="babylonLinks"
                 href="https://babylonmicrofarms.com/your-impact/"
+                target="_blank"
               >
                 Sustainability Policy
               </a>
@@ -32,6 +38,7 @@ export const Links = () => {
               <a
                 className="babylonLinks"
                 href="https://babylonmicrofarms.com/about-babylon/"
+                target="_blank"
               >
                 About Babylon
               </a>
@@ -41,6 +48,7 @@ export const Links = () => {
               <a
                 className="babylonLinks"
                 href="https://babylonmicrofarms.com/get-a-quote/"
+                target="_blank"
               >
                 Get a Quote
               </a>

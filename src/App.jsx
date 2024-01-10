@@ -1,9 +1,7 @@
-import { useEffect, useState } from "react";
 import "./App.css";
-import { createThread, retrieveThread, deleteThread, createMessage, listMessages, createRun, createResponse, retrieveAssistant } from "./assistant.js";
-import { InputBar } from "./components/InputBar.jsx";
 import { Links } from "./components/Links.jsx";
 import BabylonLogo from "./images/BabylonLogo.png";
+import { ChatContainer } from "./components/ChatContainer";
 
 function App() {
   
@@ -17,14 +15,8 @@ function App() {
 
       <p className="chatBotSlogan"> Meet WaterBoy, your personal Babylon AI</p>
 
-      {/* <MessageBox >
-            <UserMessage />
-            <AssistantMessage />
-      </MessageBox> */}
-
-      <InputBar />
+      <ChatContainer/>
       
-
       <Links />
     </>
   );
