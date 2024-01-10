@@ -1,4 +1,9 @@
+import { useState } from "react"
+
 export const MessageChannel = ({ message, role }) => {
+
+    const [copy, setCopy] = new useState('Copy');
+
     if (role === "user") {
         return (
             <div class="message" style={{ backgroundColor: "#cff4cd"}} >
@@ -15,9 +20,9 @@ export const MessageChannel = ({ message, role }) => {
                 <p>{message}</p>
                 { message !== "Fetching a Response..." &&
                     <button id="copy-button"
-                        onClick={() => navigator.clipboard.writeText(message)}
+                        onClick={() => { navigator.clipboard.writeText(message); setCopy('Copied') }}
                     >
-                        Copy
+                        {copy}
                     </button >
                 }
             </div>
