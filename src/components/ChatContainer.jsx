@@ -42,6 +42,11 @@ export const ChatContainer = () => {
 
     responseMessage = responseMessage.content[0]["text"].value;
 
+    // excludes the "" source from response
+    // const regex = /【\d†source】/g;
+    const regex = /【\d+†source】/g;
+    responseMessage = responseMessage.replace(regex, '');
+
     setMessageList([...messageList, { role: "user", text: inputOfUser }, { role: "assistant", text: responseMessage }])
 
     console.log(messageList);
