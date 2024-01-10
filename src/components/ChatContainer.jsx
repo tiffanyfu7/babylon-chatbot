@@ -9,7 +9,6 @@ import {
 } from "../assistant.js";
 
 export const ChatContainer = () => {
-  //current prompt being sent by user
   const [currentPrompt, setCurrentPrompt] = useState("none");
   const [threadID, setThreadID] = useState("");
   //messageList = [{role: , text: }...]
@@ -73,13 +72,13 @@ export const ChatContainer = () => {
               message={currentPrompt}
               role={"user"} />
             <Message
-              message="Fetching a Response..."
-              role={"assistant"} />
+                message="loading" // direct inject message to trigger Message to use animation
+                role={"assistant"} /> 
           </div>
         }
         <div id="anchor"></div>
       </div>
-
+      
       <form
         className="box"
         method="post"
