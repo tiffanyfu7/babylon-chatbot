@@ -1,4 +1,4 @@
-import InstagramLogo from "./InstagramLogo.png";
+import InstagramLogo from "../images/InstagramLogo.png";
 
 export const Links = () => {
   return (

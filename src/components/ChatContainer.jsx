@@ -9,7 +9,7 @@ import {
 } from "../assistant.js";
 
 export const ChatContainer = () => {
-  //current prompt being sent
+  //current prompt being sent by user
   const [currentPrompt, setCurrentPrompt] = useState("none");
   const [threadID, setThreadID] = useState("");
   //messageList = [{role: , text: }...]
@@ -54,7 +54,7 @@ export const ChatContainer = () => {
    }
   return (
     <div>
-      <div class="messageBox">
+      <div className="masked-overflow" id="messageBox">
         {/* Display Previously sent messages saved to messageList */}
           { messageList.map((message_obj, index) => (
             <MessageChannel
@@ -74,6 +74,7 @@ export const ChatContainer = () => {
               role={"assistant"} />
           </div>
         }
+        <div id="anchor"></div>
       </div>
 
       <form
