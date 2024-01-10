@@ -27,32 +27,51 @@ export const Message = ({ message, role }) => {
             </>
         )
     }
+
+    else if(role === "assistant" && message === "loading") {
+        return (
+            <div
+                className="message"
+                style={{ backgroundColor: "white"}}
+            >
+            <img className="assistantLogo" src={BabylonLogo2} alt="Babylon Logo"/>
+                <div className="messageHeader">
+                <h4 style={{ marginBottom: "-15px" }}>WaterBoy</h4>
+                </div>
+                {/* if waiting for assistant response (message==="loading"), display animation, otherwise display message*/}
+                <div className="stage">
+                    <p></p>
+                    <div className="dot-pulse"></div>
+                </div>
+            </div>
+        );
+    }
+
     else if(role === "assistant") {
         return (
-            <div class="message" style={{ backgroundColor: "white"}}
+            <div
+                className="message"
+                style={{ backgroundColor: "white"}}
             >
                 <img className="assistantLogo" src={BabylonLogo2} alt="Babylon Logo"/>
                     <div className="messageHeader">
                     <h4 style={{ marginBottom: "-15px" }}>WaterBoy</h4>
                     </div>
                     <p>{message}</p>
-                    {message !== "Fetching a Response..." &&
-                        <>
-                            <button className="accessibility-button"
-                                onClick={() => { navigator.clipboard.writeText(message); setCopy('Copied') }}
-                            >
-                                {copy}
-                            </button >
-                            <button
-                                className="accessibility-button"
-                                onClick={() => speak({ text: message })}
-                                >Speak
-                            </button>
-                        </>
-                    }
+                    <>
+                        <button className="accessibility-button"
+                            onClick={() => { navigator.clipboard.writeText(message); setCopy('Copied') }}
+                        >
+                            {copy}
+                        </button >
+                        <button
+                            className="accessibility-button"
+                            onClick={() => speak({ text: message })}
+                            >Speak
+                        </button>
+                    </>
             </div>
         )
-        
     }
     else return <></>
 }
