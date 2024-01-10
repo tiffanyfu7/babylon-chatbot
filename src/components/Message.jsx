@@ -1,8 +1,8 @@
 import { useState } from "react"
-import BabylonLogo2 from "./images/BabylonLogo2.png"
-import UserIcon from "./images/UserIcon.png"
+import BabylonLogo2 from "../images/BabylonLogo2.png"
+import UserIcon from "../images/UserIcon.png"
 
-export const MessageChannel = ({ message, role }) => {
+export const Message = ({ message, role }) => {
     //if message is sent from user, align to right of page (not working)
     const [copy, setCopy] = new useState('Copy');
 

@@ -1,19 +1,13 @@
 import "./App.css";
 import { Links } from "./components/Links.jsx";
-import BabylonLogo from "./components/images/BabylonLogo.png";
 import { ChatContainer } from "./components/ChatContainer.jsx";
+import { Header } from "./components/Header.jsx";
 
 function App() {
   
   return (
     <>
-      <h1 className="chatBotHeader">
-        {" "}
-        <img className="babyImg" src={BabylonLogo} alt="Babylon Farms Logo" />
-        WaterBoy
-      </h1>
-
-      <p className="chatBotSlogan"> Meet WaterBoy, your personal Babylon Micro-Farms ChatBot</p>
+      <Header />
 
       <ChatContainer/>
       
