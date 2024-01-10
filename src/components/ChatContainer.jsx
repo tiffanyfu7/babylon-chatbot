@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { MessageChannel } from "./MessageChannel.jsx";
+import { Message } from "./Message.jsx";
 import {
   createThread,
   createMessage,
@@ -9,7 +9,6 @@ import {
 } from "../assistant.js";
 
 export const ChatContainer = () => {
-  //current prompt being sent by user
   const [currentPrompt, setCurrentPrompt] = useState("none");
   const [threadID, setThreadID] = useState("");
   //messageList = [{role: , text: }...]
@@ -60,7 +59,7 @@ export const ChatContainer = () => {
       <div className="masked-overflow" id="messageBox">
         {/* Display Previously sent messages saved to messageList */}
           { messageList.map((message_obj, index) => (
-            <MessageChannel
+            <Message
               key={index}
               message={message_obj.text}
               role={message_obj.role} /> )
@@ -69,17 +68,17 @@ export const ChatContainer = () => {
         {/* Display Current Prompt */}
         {currentPrompt !== "none" &&
           <div>
-            <MessageChannel
+            <Message
               message={currentPrompt}
               role={"user"} />
-            <MessageChannel
+            <Message
                 message="loading" // direct inject message to trigger Message to use animation
                 role={"assistant"} /> 
           </div>
         }
         <div id="anchor"></div>
       </div>
-
+      
       <form
         className="box"
         method="post"

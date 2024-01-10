@@ -114,24 +114,12 @@ input type text
 
 .box {
   position: absolute;
-  bottom: 10%;
+  bottom: 13%;
   width: 80%;
-  /* width of outside box*/
   left: 50%;
   transform: translateX(-50%);
   overflow-y: auto;
   z-index: 1;
-
-  /* Use left 50% and then transform: translateX(-50%) when you want to center anything horizonatlly across a page*/
-}
-
-.inputbox {
-  width: 100%;
-  box-sizing: border-box;
-  height: 0px;
-  padding: 20px;
-  overflow-y: auto;
-
 }
 
 .input-container {
@@ -139,11 +127,20 @@ input type text
   position: relative;
 }
 
+.inputbox {
+  border: 0px;
+  width: 100%;
+  box-sizing: border-box;
+  height: 0px;
+  padding: 20px;
+  overflow-y: auto;
+}
+
 input[type="text"] {
   background: white;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   border-radius: 25px 0 0 25px;
-  color: Black;
+  color: black;
   overflow-y: auto;
 }
 
@@ -161,8 +158,10 @@ submit buttion active
 */
 
 .submitButton {
+  background-color: #79AE93;
+  color: white;
   border-radius: 0 25px 25px 0;
-  height: 44px;
+  height: 40px;
   z-index: 2;
   position: relative;
   bottom: 0;
@@ -226,7 +225,7 @@ list of links ul:
 .babylonLinks:hover {
   background-color: #126180;
   color: white;
-  transform: scale(1.2);
+  transform: scale(1.1);
   z-index: 1;
 }
 
@@ -269,7 +268,7 @@ list of links ul:
 }
 
 .instagramImage:hover {
-  transform: scale(1.2);
+  transform: scale(1.1);
 }
 
 /*CSS for Message-Box and messages*/
@@ -449,4 +448,25 @@ https://pqina.nl/blog/fade-out-overflow-using-css-mask-image */
 
 .masked-overflow::-webkit-scrollbar-track {
   background-color: transparent;
+}
+
+.message {
+  width: fit-content;
+  overflow-y: auto;
+  color: black;
+  white-space: pre-line;
+  line-height: 1.25;
+  text-align: left;
+  padding: 1px 30px 2px 15px;
+  margin-bottom: 15px;
+  margin-right: 15px;
+  border-radius: 20px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+}
+
+.accessibility-button {
+  border-radius: 15px;
+  font-size: 10px;
+  background-color: #79AE93;
+  margin: 0px 5px 15px 0px;
 }
