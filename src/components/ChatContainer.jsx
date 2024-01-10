@@ -29,18 +29,23 @@ export const ChatContainer = () => {
     setCurrentPrompt(inputOfUser);
     prompt.target.userInput.value = "";
 
-    const message = await createMessage(threadID, inputOfUser)
+    const message = await createMessage(threadID, inputOfUser);
 
-    const run = await createRun(threadID)
+    const run = await createRun(threadID);
 
-    const response = await createResponse(threadID, run.id)
+    const response = await createResponse(threadID, run.id);
 
-    const messages = await listMessages(threadID)
+    const messages = await listMessages(threadID);
 
     let responseMessage = messages.filter((obj) => obj.run_id === run.id && obj.role === "assistant")
     .pop();
 
     responseMessage = responseMessage.content[0]["text"].value;
+
+    // excludes the "" source from response
+    // const regex = /【\d†source】/g;
+    const regex = /【\d+†source】/g;
+    responseMessage = responseMessage.replace(regex, '');
 
     setMessageList([...messageList, { role: "user", text: inputOfUser }, { role: "assistant", text: responseMessage }])
 
