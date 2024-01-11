@@ -13,7 +13,6 @@ export const Message = ({ message, role }) => {
             <>
             <div
                 className="message"
-                // style={{ textAlign: "right", marginRight: "0px" }}
                 style={{ backgroundColor: "#79AE93"}}
             >
             <img className="userLogo" src={UserIcon} alt="User Logo"/>
@@ -28,6 +27,7 @@ export const Message = ({ message, role }) => {
         )
     }
 
+    /* if waiting for assistant response (message==="loading"), display animation, otherwise display message*/
     else if(role === "assistant" && message === "loading") {
         return (
             <div
@@ -38,7 +38,7 @@ export const Message = ({ message, role }) => {
                 <div className="messageHeader">
                 <h4 style={{ marginBottom: "-15px" }}>WaterBoy</h4>
                 </div>
-                {/* if waiting for assistant response (message==="loading"), display animation, otherwise display message*/}
+                
                 <div className="stage">
                     <p></p>
                     <div className="dot-pulse"></div>
