@@ -4,6 +4,7 @@
 This is a ChatBot Application using OpenAI's Assistants API and was programmed using React and styled with CSS. 
 
 The App component consists of a Header, ChatContainer, Message(s), and Links component. 
+
 <img width="887" alt="Screen Shot 2024-01-10 at 2 18 26 PM" src="https://github.com/tiffanyfu7/babylon-microfarms-chatbot/assets/71473099/607acc80-3325-4d81-923f-ece5e9277b7c">
 
 Babylon Micro-Farms was founded Alexander Olesen and Graham Smith with the goal of bringing the benefits of sustainable hydroponic farming to anyone who needs it.
@@ -23,8 +24,10 @@ VITE_OPENAI_API_KEY = "[api_key]"
 VITE_OPENAI_ASSISTANT_ID = "[assistant_id]"
 
 ## How to Use:
-__Starting WaterBoy:__ Upon launching, the chatbot interface is immediately accesible
-__Interacting with WaterBoy:__ Type your micro-farming questions in the chat box and press the Submit button or enter. Upon processing, WaterBoy will respond with relevant information, tips, and actions.
+__Starting WaterBoy:__ Upon launching, the chatbot interface is immediately accesible<br>
+
+__Interacting with WaterBoy:__ Type your micro-farming questions in the chat box and press the Submit button or enter. Upon processing, WaterBoy will respond with relevant information, tips, and actions.<br>
+
 __Additional Features:__ Explore the various functionalities such as the text-to-speech feature or the assistant's response copy feature
 
 ## Credits:
