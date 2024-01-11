@@ -12,7 +12,7 @@ Babylon Micro-Farms was founded Alexander Olesen and Graham Smith with the goal 
 This ChatBot serves as the first line of customer service for Babylon's expanding array of products. 
 
 ## How to Install and Run:
-##### Prequisites: Ensure You have Node.js and npm installed on your system (check using `npm -v` or install <a href="https://nodejs.org/en/download" TARGET="_blank"> here</a> 
+##### Prequisites: Ensure You have Node.js and npm installed on your system (check using `npm -v` or install [here](https://nodejs.org/en/download))
 1. Clone the repo using `git clone [THIS_GITHUB_URL]` and then navigate into the project directory using `cd babylon-microfarms-chatbot` 
 2. Install dependencies from the package-lock-json using `npm install`
 3. Run the app using `npm run dev` to launch in your browser using Vite
