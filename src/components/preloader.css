@@ -1,0 +1,70 @@
+.preloader {
+    height: 100vh;
+    width: 100vw;
+    background-color: #004357;
+    color: white;
+    position: fixed;
+    
+    left: 0;
+    bottom: 0;
+    z-index: 55;
+    overflow: hidden;
+  }
+  
+  .preloader .textContainer {
+    display: flex;
+    align-items: center;
+    flex-direction:column;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    font-size: 90px;
+    overflow: hidden;
+    color: white;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+    font-weight: 600;
+    letter-spacing: 20px;
+  
+  }
+  
+  
+  .rsup {
+    font-size: 15px;
+  }
+  
+  .BabyLogo3 {
+    height: 90px;
+    width: 90px;
+    position: absolute;
+    top: 27.5vh;
+  
+    animation: bounce 1.27s infinite;
+  }
+  
+  @keyframes bounce {
+      10%{
+          height:90px;
+          width: 90px;
+      }
+      
+      50%{
+          height:90px;
+          width: 90px;
+          transform:translateY(20px)
+      }
+      75%{
+          height:90px;
+          width: 90px;
+      }
+      100%{
+          transform: translateY(0px)
+      }
+  
+  }
+  
+  
+  .subtitle {
+    font-size: 20px;
+    letter-spacing: normal;
+    text-align: center;
+  }
