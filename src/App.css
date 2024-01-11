@@ -470,3 +470,7 @@ https://pqina.nl/blog/fade-out-overflow-using-css-mask-image */
   background-color: #79AE93;
   margin: 0px 5px 15px 0px;
 }
+
+.accessibility-button:hover {
+  transform:scale(1.1)
+}
