@@ -129,32 +129,3 @@ async function createResponse(myThread, myRun) {
   }
 }
 export { createResponse };
-
-/* Get Response */
-
-/* Display OpenAI API Assistant Response */
-
-// if(runID){
-//   createResponse(threadID, runID)
-//    .then((obj) => console.log(obj))
-//    .catch((error) => console.log(error))
-
-//    console.log("this is working")
-
-//   const messageList = listMessages(threadID)
-//   .then((obj) => {
-//     console.log(obj);
-//   })
-//   .catch((error) => console.log(error));
-
-//   console.log(messageList.data)
-
-//   const responseMessage = messageList.data
-//   .filter((message) => message.id === runID && message.role === "assistant")
-//   .pop();
-
-//   console.log(responseMessage);
-
-// }
-
-// }, [runID])
